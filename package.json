@@ -1,10 +1,11 @@
 {
   "name": "employee-details-backend",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev":"nodemon index.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
@@ -15,8 +16,5 @@
     "jade": "^1.11.0",
     "mongoose": "^7.5.3",
     "nodemon": "^3.0.1"
-  },
-  "devDependencies": {},
-  "keywords": [],
-  "description": ""
+  }
 }
