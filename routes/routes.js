@@ -33,7 +33,8 @@ router.post("/addEmployee", async (req, res, next) => {
       email,
     });
     const addedEmp = await employee.save();
-    res.send(addedEmp);
+    let allEmp = await EmployeeDetails.find();
+    res.send(allEmp);
   } catch (error) {
     next(error);
   }
