@@ -14,6 +14,12 @@ router.get("/getAllEmployees", async (req, res) => {
   let emp = await EmployeeDetails.find();
   res.json(emp);
 });
+router.get( "/search", async( req, res ) =>
+{
+  let empid = req.query.q;
+  let emp = await EmployeeDetails.find( {empid} );
+  res.json(emp);
+});
 
 router.get("/employee/:id", async (req, res) => {
   const empid = req.params.id;
@@ -22,9 +28,10 @@ router.get("/employee/:id", async (req, res) => {
 });
 
 router.post("/addEmployee", async (req, res, next) => {
-  try {
+  try
+  {
     const { empid, name, dob, email } = req.body;
-    let userExist = await EmployeeDetails.findOne({ empid });
+    let userExist = await EmployeeDetails.findOne( { empid } );
     if (userExist) throw new Error(`${empid} Employee ID already exists!`);
     const employee = new EmployeeDetails({
       empid,
@@ -35,7 +42,8 @@ router.post("/addEmployee", async (req, res, next) => {
     const addedEmp = await employee.save();
     let allEmp = await EmployeeDetails.find();
     res.send(allEmp);
-  } catch (error) {
+  } catch ( error )
+  {
     next(error);
   }
 });
