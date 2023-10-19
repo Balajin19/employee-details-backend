@@ -33,7 +33,7 @@ router.post("/addEmployee", async (req, res, next) => {
   {
     const { empid, name, dob, email } = req.body;
     let userExist = await EmployeeDetails.findOne( { empid } );
-    if (userExist) throw new Error(`${empid} Employee ID already exists!`);
+    if (userExist) throw createError.Conflict(`${empid} Employee ID already exists!`);
     const employee = new EmployeeDetails({
       empid,
       name,
