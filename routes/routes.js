@@ -45,7 +45,6 @@ router.post("/addEmployee", async (req, res, next) => {
     res.send(allEmp);
   } catch ( error )
   {
-    console.log(error,"error");
     next(error);
   }
 });
