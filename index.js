@@ -5,7 +5,7 @@ const routes = require( "./routes/routes" );
 const connectdb=require("./config/connectdb")
 const app = express();
 app.use( express.json() );
-app.use(cors());
+app.use(cors({ origin: "https://example.com" }));
 app.options("*", cors());
 const port = process.env.PORT || 3000;
 dotenv.config();
