@@ -23,7 +23,7 @@ app.use((error, req, res, next) => {
   });
 } );
 app.use((req, res, next) => {
-  res.set({
+  res.setHeader({
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Methods": "*",
     "Access-Control-Allow-Headers":
