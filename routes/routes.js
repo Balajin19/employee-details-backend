@@ -17,11 +17,12 @@ router.get("/getAllEmployees", async (req, res) => {
 router.get( "/search", async( req, res ) =>
 {
   let empid = req.query.q;
-  let emp = await EmployeeDetails.find( {empid} );
+  let emp = await EmployeeDetails.findOne( { empid } );
   res.json(emp);
 });
 
-router.get("/employee/:id", async (req, res) => {
+router.get( "/employee/:id", async ( req, res ) =>
+{
   const empid = req.params.id;
   let emp = await EmployeeDetails.findOne({ empid });
   res.json(emp);
@@ -44,12 +45,13 @@ router.post("/addEmployee", async (req, res, next) => {
     res.send(allEmp);
   } catch ( error )
   {
+    console.log(error,"error");
     next(error);
   }
 });
 
 router.patch("/updateEmployee/:id", async (req, res, next) => {
-  try {
+  try {  
     let empid = req.params.id;
     let updateEmp = await EmployeeDetails.findOne({ empid });
     let _id = updateEmp._id;
