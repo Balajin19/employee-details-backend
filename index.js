@@ -6,7 +6,7 @@ const connectdb = require("./config/connectdb");
 const app = express();
 app.use(express.json());
 app.use(cors());
-app.options("*", cors());
+app.options("*", cors({origin:"*"}));
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "*");
